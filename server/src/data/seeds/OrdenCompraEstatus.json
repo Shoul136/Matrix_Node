@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pendiente de Cotizaciones",
+        "codigo": "01"
+    },
+    {
+        "id": 2,
+        "nombre": "En Cotización",
+        "codigo": "02"
+    },
+    {
+        "id": 3,
+        "nombre": "Pendiente de Selección Ingeniero",
+        "codigo": "03"
+    },
+    {
+        "id": 4,
+        "nombre": "Pendiente de Aprobación Gerente",
+        "codigo": "04"
+    },
+    {
+        "id": 5,
+        "nombre": "Aprobada",
+        "codigo": "05"
+    },
+    {
+        "id": 6,
+        "nombre": "Rechazada",
+        "codigo": "06"
+    },
+    {
+        "id": 7,
+        "nombre": "Cancelada",
+        "codigo": "07"
+    },
+    {
+        "id": 8,
+        "nombre": "Emitida PO",
+        "codigo": "08"
+    },
+    {
+        "id": 9,
+        "nombre": "Recibida Parcial",
+        "codigo": "09"
+    },
+    {
+        "id": 10,
+        "nombre": "Recibida Completa",
+        "codigo": "10"
+    },
+    {
+        "id": 11,
+        "nombre": "Cerrada",
+        "codigo": "11"
+    }
+]

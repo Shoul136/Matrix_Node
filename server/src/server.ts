@@ -2,12 +2,15 @@ import express from 'express'
 import morgan from 'morgan'
 import db from './config/db.js'
 import colors from 'colors'
+import { seedDatabase } from './data/index.js'
 
 export async function connectDB()
 {
     try {
         await db.authenticate()
         await db.sync({alter: true})
+
+        await seedDatabase()
         console.log(colors.blue('Conexión exitosa a la BD'))
     } catch (error) {
         console.log(colors.red.bold('Hubo un error al conectar la BD'));

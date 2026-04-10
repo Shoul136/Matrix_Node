@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "nombre": "Administración",
+        "jefe_departamento": null
+    },
+    {
+        "id": 2,
+        "nombre": "Calidad",
+        "jefe_departamento": null
+    },
+    {
+        "id": 3,
+        "nombre": "Compras MRO",
+        "jefe_departamento": null
+    },
+    {
+        "id": 4,
+        "nombre": "Ingeniería",
+        "jefe_departamento": null
+    },
+    {
+        "id": 5,
+        "nombre": "Mantenimiento",
+        "jefe_departamento": null
+    },
+    {
+        "id": 6,
+        "nombre": "Contaduría",
+        "jefe_departamento": null
+    },
+    {
+        "id": 7,
+        "nombre": "Producción",
+        "jefe_departamento": null
+    },
+    {
+        "id": 8,
+        "nombre": "Gerencia",
+        "jefe_departamento": null
+    },
+    {
+        "id": 9,
+        "nombre": "Recursos Humanos",
+        "jefe_departamento": null
+    },
+    {
+        "id": 10,
+        "nombre": "Seguridad e Higiene",
+        "jefe_departamento": null
+    },
+    {
+        "id": 11,
+        "nombre": "Logística",
+        "jefe_departamento": null
+    },
+    {
+        "id": 12,
+        "nombre": "Almacén",
+        "jefe_departamento": null
+    },
+    {
+        "id": 13,
+        "nombre": "Sistemas",
+        "jefe_departamento": null
+    }
+]
