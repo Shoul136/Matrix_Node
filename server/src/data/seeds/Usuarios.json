@@ -1,0 +1,178 @@
+[
+  {
+    "id": "d20c6cde-dc4b-4667-a261-637694907589",
+    "email": "luisrqvg@gmail.com",
+    "password": "password123!.",
+    "nombre": "Luis Roberto",
+    "apellido_paterno": "Roque Vargas",
+    "apellido_materno": "S/M",
+    "departamento_id": 13,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "1fc3d3b0-85b5-4c5a-86f9-baadb6664433",
+    "email": "jorgerqvg@gmail.com",
+    "password": "password123!.",
+    "nombre": "Jorge Geovanny",
+    "apellido_paterno": "Roque",
+    "apellido_materno": "Vargas",
+    "departamento_id": 13,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "20bd86e6-4d55-4d6b-aa0e-f7fa9ed64364",
+    "email": "rperez@empresa.com",
+    "password": "password123!.",
+    "nombre": "Ricardo",
+    "apellido_paterno": "Pérez",
+    "apellido_materno": "S/M",
+    "departamento_id": 2,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "2617f4c8-e4cc-4e2d-9f08-5dea2d4fb715",
+    "email": "coloresdana14@gmail.com",
+    "password": "password123!.",
+    "nombre": "Dana Lizett",
+    "apellido_paterno": "Colores Juarez",
+    "apellido_materno": "S/M",
+    "departamento_id": 1,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "2fbd82a3-9e9a-477c-b69f-822b9301d788",
+    "email": "cruiz@empresa.com",
+    "password": "password123!.",
+    "nombre": "Carlos",
+    "apellido_paterno": "Ruiz",
+    "apellido_materno": "S/M",
+    "departamento_id": 9,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "420f4875-0bad-4ecb-9032-8360def99174",
+    "email": "etorres@empresa.com",
+    "password": "password123!.",
+    "nombre": "Elena",
+    "apellido_paterno": "Torres",
+    "apellido_materno": "S/M",
+    "departamento_id": 8,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "4a832f69-d6bb-4890-8921-f898bb1cca1a",
+    "email": "mcastro@empresa.com",
+    "password": "password123!.",
+    "nombre": "Manuel",
+    "apellido_paterno": "Castro",
+    "apellido_materno": "S/M",
+    "departamento_id": 7,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "56a6c4a4-8487-43f6-a2d0-3e2581a0e89c",
+    "email": "iluna@empresa.com",
+    "password": "password123!.",
+    "nombre": "Isabel",
+    "apellido_paterno": "Luna",
+    "apellido_materno": "S/M",
+    "departamento_id": 4,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "6f2af8a4-43d0-49dd-aadf-e150c0384c21",
+    "email": "pvargas@empresa.com",
+    "password": "password123!.",
+    "nombre": "Pedro",
+    "apellido_paterno": "Vargas",
+    "apellido_materno": "S/M",
+    "departamento_id": 4,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "6941d417-0aa8-4168-84b1-e5426a50767b",
+    "email": "jcruz@empresa.com",
+    "password": "password123!.",
+    "nombre": "Javier",
+    "apellido_paterno": "Cruz",
+    "apellido_materno": "S/M",
+    "departamento_id": 5,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "b4b1f689-ae39-4250-8ec4-498e418b5577",
+    "email": "dgomez@empresa.com",
+    "password": "password123!.",
+    "nombre": "Diana",
+    "apellido_paterno": "Gómez",
+    "apellido_materno": "S/M",
+    "departamento_id": 10,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "b59fd40c-fef9-4f35-8256-3d5b1d9ebacc",
+    "email": "lrojas@empresa.com",
+    "password": "password123!.",
+    "nombre": "Laura",
+    "apellido_paterno": "Rojas",
+    "apellido_materno": "S/M",
+    "departamento_id": 6,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "c6c2daa9-f733-40c8-a618-183ada9f2f05",
+    "email": "ajimenez@empresa.com",
+    "password": "password123!.",
+    "nombre": "Ana",
+    "apellido_paterno": "Jiménez",
+    "apellido_materno": "S/M",
+    "departamento_id": 3,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "ce90336f-0350-4733-9cfc-dfe8568520fe",
+    "email": "mherrera@empresa.com",
+    "password": "password123!.",
+    "nombre": "Miguel",
+    "apellido_paterno": "Herrera",
+    "apellido_materno": "S/M",
+    "departamento_id": 12,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "dda4bc2a-4790-4b0d-8904-b2dc8f9586cc",
+    "email": "smendez@empresa.com",
+    "password": "password123!.",
+    "nombre": "Sofía",
+    "apellido_paterno": "Mendez",
+    "apellido_materno": "S/M",
+    "departamento_id": 1,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  },
+  {
+    "id": "e31eb061-9484-4803-8253-c9a8e3f97220",
+    "email": "fsoto@empresa.com",
+    "password": "password123!.",
+    "nombre": "Fernando",
+    "apellido_paterno": "Soto",
+    "apellido_materno": "S/M",
+    "departamento_id": 11,
+    "created_by": "d20c6cde-dc4b-4667-a261-637694907589",
+    "last_modified_by": "d20c6cde-dc4b-4667-a261-637694907589"
+  }
+]
