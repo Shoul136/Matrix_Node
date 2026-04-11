@@ -1,5 +1,6 @@
 import { AllowNull, AutoIncrement, BelongsTo, Column, DataType, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
 import Usuario from "./Usuario.model.js";
+import { MaterialEstatus as MaterialEnum } from './enums/index.js'
 
 @Table({
     tableName: 'material',
@@ -48,7 +49,7 @@ class Material extends Model{
 
     @AllowNull(false)
     @Column({type: DataType.STRING(20)})
-    declare estatus: string
+    declare estatus: MaterialEnum
 
     @BelongsTo(() => Usuario, 'created_by')
     declare creator: Usuario

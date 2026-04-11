@@ -4,7 +4,8 @@ import Usuario from "./Usuario.model.js";
 import Proveedor from "./Proveedor.model.js";
 import Cotizacion from "./Cotizacion.model.js";
 import RecepcionMaterial from "./RecepcionMaterial.model.js";
-
+import OrdenCompraEstatus from "./OrdenCompraEstatus.model.js";
+import { OrdenCompraEstatus as OrderCompraEnum } from './enums/index.js'
 @Table({
     tableName: 'orden_compra',
     timestamps: true,
@@ -68,9 +69,9 @@ class OrdenCompra extends Model
     @Column({type: DataType.TEXT})
     declare nota: string
 
-    @AllowNull(false)
-    @Column({type: DataType.STRING(20)})
-    declare estatus: string
+    @ForeignKey(() => OrdenCompraEstatus)
+    @Column({type: DataType.INTEGER})
+    declare estatus_id: OrderCompraEnum
 
     @BelongsTo(() => Requisicion, 'requisicion_id')
     declare requisicion: Requisicion
@@ -83,6 +84,9 @@ class OrdenCompra extends Model
 
     @BelongsTo(() => Proveedor, 'proveedor_id')
     declare proveedor: Proveedor
+
+    @BelongsTo(() => OrdenCompraEstatus, 'estatus_id')
+    declare estatus: OrdenCompraEstatus
 
     @HasMany(() => Cotizacion)
     declare cotizaciones: Cotizacion[]
