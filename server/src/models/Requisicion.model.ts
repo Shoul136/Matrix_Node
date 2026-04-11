@@ -4,6 +4,7 @@ import Departamento from "./Departamento.model.js";
 import Proyecto from "./Proyecto.model.js";
 import DetalleRequisicion from "./DetalleRequisicion.model.js";
 import OrdenCompra from "./OrdenCompra.model.js";
+import { RequisicionEstatus as RequisicionEnum } from "./enums/index.js";
 
 @Table({
     tableName: 'requisicion',
@@ -43,7 +44,7 @@ class Requisicion extends Model{
 
     @AllowNull(false)
     @Column({type: DataType.STRING})
-    declare estatus: string
+    declare estatus: RequisicionEnum
 
     @BelongsTo(() => Departamento, 'departamento_id')
     declare departamento: Departamento
