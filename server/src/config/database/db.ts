@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript'
-import * as models from '../models/index.js'
+import * as models from '../../models/index.js'
 import dotenv from 'dotenv'
 dotenv.config()
 

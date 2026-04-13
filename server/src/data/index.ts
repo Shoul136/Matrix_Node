@@ -1,5 +1,5 @@
 import { exit } from 'node:process'
-import db from '../config/db.js'
+import db from '../config/database/db.js'
 import colors from 'colors'
 import bcrypt from 'bcrypt'
 import Departamento from '../models/Departamento.model.js'
@@ -7,6 +7,8 @@ import Departamento from '../models/Departamento.model.js'
 import departamentosData from './seeds/Departamento.json' with {type: 'json'};
 import usuariosData from './seeds/Usuarios.json' with {type: 'json'};
 import Usuario from '../models/Usuario.model.js'
+import Role from '../models/Role.model.js'
+import { RolesEnum } from '../models/enums/index.js'
 
 const clearDB = async () => {
     try {
@@ -29,6 +31,16 @@ export const seedDatabase = async () => {
             console.log(colors.green('✔ Departamentos creados correctamente'))
         }
 
+        const rolesCount = await Role.count()
+        if(rolesCount === 0) {
+            await Role.bulkCreate([
+                { id: RolesEnum.ADMIN, nombre: 'ADMIN', descripcion: 'Control total del sistema' },
+                { id: RolesEnum.MANAGER, nombre: 'MANAGER', descripcion: 'Gestión de departamentos' },
+                { id: RolesEnum.USER, nombre: 'USER', descripcion: 'Acceso estándar' }
+            ]),
+            console.log(colors.green('✔ Roles creados correctamente'));
+        }
+
         const user_count = await Usuario.count();
         if (user_count === 0) {
             const userWithHashedPasswords = await Promise.all(
@@ -42,8 +54,15 @@ export const seedDatabase = async () => {
                 })
             );
 
-            await Usuario.bulkCreate(userWithHashedPasswords);
-            console.log(colors.green('✔ Usuarios creados correctamente con contraseñas seguras'));
+            const createdUsers = await Usuario.bulkCreate(userWithHashedPasswords);
+            for (const user of createdUsers) {
+                if (user.email === 'luisrqvg@gmail.com') {
+                    await user.$set('roles', [RolesEnum.ADMIN]);
+                } else {
+                    await user.$set('roles', [RolesEnum.USER]);
+                }
+            }
+            console.log(colors.green('✔ Usuarios creados y roles vinculados'));
         }
         console.log(colors.blue.bold('Seeding completado con éxito.'));
     } catch (error) {
@@ -51,8 +70,6 @@ export const seedDatabase = async () => {
         console.log(error)
         process.exit(1)
     }
-
-
 }
 
 if (process.argv[2] === '--clear') {

@@ -28,3 +28,10 @@ export enum MaterialEstatus{
     Activo = "Activo",
     Inactivo = "Inactivo"
 }
+
+export enum RolesEnum {
+    ADMIN = 1,
+    MANAGER = 2,
+    USER = 3,
+    MAINTANENCE = 4
+}
