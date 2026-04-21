@@ -2,6 +2,7 @@ import { AllowNull, BelongsTo, BelongsToMany, Column, DataType, Default, Foreign
 import Role from "./Role.model.js";
 import UsuarioRole from "./UsuarioRole.model.js";
 import Departamento from "./Departamento.model.js";
+import { UsuarioEnum } from "./enums/index.js";
 
 @Table({
     tableName: 'usuario',
@@ -53,6 +54,10 @@ class Usuario extends Model {
     declare last_modified_by: string
 
     declare last_modified_date: Date
+
+    @Default(UsuarioEnum.Activo)
+    @Column({type: DataType.STRING})
+    declare estatus: UsuarioEnum
 
     @BelongsTo(() => Departamento)
     declare departamento: Departamento

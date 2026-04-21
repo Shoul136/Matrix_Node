@@ -49,9 +49,6 @@ export class ManageFileService implements IManageFileService {
             throw new Error("Error al subir la imagen en la nube");
         }
     }
-
-
-
 }
 
 const cloudinary_config = async (cloud_name: string, api_key: string, api_secret: string) => {

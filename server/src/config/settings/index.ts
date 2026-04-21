@@ -22,5 +22,8 @@ export const config = {
         cloud_name: getEnv('CLOUDINARY_CLOUD_NAME'),
         api_key: getEnv('CLOUDINARY_API_KEY'),
         api_secret: getEnv('CLOUDINARY_API_SECRET')
+    },
+    settings: {
+        base_url_client: getEnv('FRONTEND_URL')
     }
 } as const

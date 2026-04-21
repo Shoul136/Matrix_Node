@@ -35,3 +35,10 @@ export enum RolesEnum {
     USER = 3,
     MAINTANENCE = 4
 }
+
+export enum UsuarioEnum{
+    Activo = "Activo",
+    Inactivo = "Inactivo",
+    Suspendido = "Suspendido",
+    Vacaciones = "Vacaciones"
+}
