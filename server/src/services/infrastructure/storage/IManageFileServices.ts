@@ -5,5 +5,5 @@ export type FileResponseType = {
 
 export interface IManageFileService{
     uploadFile(filePath: string, nombre: string) : Promise<FileResponseType>
-    uploadImage(imageStream: string, nombre: string) : Promise<FileResponseType>
+    uploadImage(filePath: string, nombre: string) : Promise<FileResponseType>
 }

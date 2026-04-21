@@ -3,6 +3,7 @@ import Permiso from "./Permiso.model.js";
 import RolePermiso from "./RolePermiso.model.js";
 import Usuario from "./Usuario.model.js";
 import UsuarioRole from "./UsuarioRole.model.js";
+import type { RolesEnum } from "./enums/index.js";
 
 @Table({
     tableName: 'role',
@@ -13,7 +14,7 @@ class Role extends Model{
     @PrimaryKey
     @AutoIncrement
     @Column(DataType.INTEGER)    
-    declare id: number
+    declare id: RolesEnum
 
     @AllowNull(false)
     @Column({type: DataType.STRING(100)})
