@@ -1,22 +1,24 @@
-import type { Request, Response, NextFunction} from "express"
-import type { RolesEnum } from "../models/enums/index.js"
+import type { Response, NextFunction} from "express"
+import type { AuthentificatedRequest } from "../interfaces/jwtPayload.interface.js";
 
-export const authorize = (allowedRoles: RolesEnum[]) => {
-    return (req: Request, res: Response, next: NextFunction) => {
-        const user = (req as any).user
+// authorize.middleware.ts
+export const authorize = (allowedItems: (string | number)[]) => {
+    return (req: AuthentificatedRequest, res: Response, next: NextFunction) => {
+        const userPermisos = req.user?.permisos || [];
+        const userRoles = req.user?.roles || [];
 
-        if(!user || !user.roles) {
-            return res.status(403).json({
-                message: "Acceso denegado. No se encontraron roles de usuario."
-            })
-        }
+        const hasRole = allowedItems.some(item => 
+            typeof item === 'number' && userRoles.includes(item)
+        );
 
-        const hasRole = user.roles.some((role: any) => allowedRoles.includes(role));
+        const hasPermission = allowedItems.some(item => 
+            typeof item === 'string' && userPermisos.includes(item)
+        );
 
-        if(!hasRole){
-            return res.status(403).json({
-                message: "No tienes permisos suficientes para realizar esta acción."
-            })
+        if (!hasRole && !hasPermission) {
+            return res.status(403).json({ 
+                message: "No tienes los privilegios necesarios para esta acción" 
+            });
         }
 
         next();

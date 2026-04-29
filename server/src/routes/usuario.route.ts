@@ -27,7 +27,7 @@ router.post("/sendPassword", validate(SendPasswordSchema) ,controller.sendPasswo
 router.patch("/password/reset/:token", validate(ResetPasswordByTokenSchema) ,controller.resetPasswordByToken)
 
 // Consultas
-router.get("/", validateToken, controller.getPaginationUser)
+router.get("/", validateToken, authorize(["usuarios:leer"]) ,controller.getPaginationUser)
 router.get("/search", validateToken, controller.getUserByEmail)
 router.get("/:id", validateToken, controller.getUserById)
 

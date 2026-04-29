@@ -5,16 +5,18 @@ import { type IAutService } from "./IAutService.js";
 import bcrypt from 'bcrypt'
 import type { ServiceResponse} from '../../../../interfaces/service.interface.js';
 import type { JWTPayload } from '../../../../interfaces/jwtPayload.interface.js';
+import type Permiso from '../../../../models/Permiso.model.js';
 
 export class JwtAuthService implements IAutService {
     constructor(private readonly _secret: string, private readonly _expires: string) { }
 
-    createToken(user: Usuario, roles: Role[] = []): string {
+    createToken(user: Usuario, roles: Role[] = [], permisos: string[]): string {
         const payload =
         {
             id: user.id,
             email: user.email,
-            roles: roles.map(role => role.id)
+            roles: roles.map(role => role.id),
+            permisos: permisos
         };
 
         return jwt.sign(payload, this._secret, { expiresIn: this._expires as any });

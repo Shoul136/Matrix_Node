@@ -15,7 +15,7 @@ export class UsuarioController {
         try {
             const data = req.body as AuthLoginDTO
             const result = await this._authService.login(data)
-            res.status(200).json(result)
+            return res.status(200).json(result)
         } catch (error) {
             next(error);
         }
@@ -25,7 +25,7 @@ export class UsuarioController {
         try {
             const usuarioData: RegisterUsuarioDTO = req.body
             const result = await this._userService.registerUser(usuarioData)
-            res.status(200).json({ msg: "¡Usuario creado exitosamente!", data: result })
+            return res.status(200).json({ msg: "¡Usuario creado exitosamente!", data: result })
         } catch (error) {
             next(error);
         }
@@ -66,7 +66,7 @@ export class UsuarioController {
                 return res.status(400).json({ msg: 'El email es obligatorio' });
 
             const result = await this._userService.sendPassword(email)
-            res.status(200).json({ msg: '¡Correo electronico enviado correctamente!', data: result })
+            return res.status(200).json({ msg: '¡Correo electronico enviado correctamente!', data: result })
         } catch (error) {
             next(error)
         }
