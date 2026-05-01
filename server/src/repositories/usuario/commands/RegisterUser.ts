@@ -19,7 +19,9 @@ export const registerUser = async (usuario: RegisterUsuarioDTO) => {
 
     await newUser.$set('roles', [RolesEnum.USER])
 
-    return await newUser.reload({
+    await newUser.reload({
         include: [{ model: Role, as: 'roles', through: { attributes: []}}]
     })
+
+    return newUser ? newUser.get({ plain: true }) : null
 }

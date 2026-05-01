@@ -2,7 +2,6 @@ import { loginUserCommand } from "./commands/LoginUser.js";
 import { registerUser } from "./commands/RegisterUser.js";
 import { resetPassword } from "./commands/ResetPassword.js";
 import { resetPasswordByToken } from "./commands/ResetPasswordByToken.js";
-import { sendPassword } from "./commands/SendPassword.js";
 import { updateAdminStatusUser } from "./commands/UpdateAdminStatusUser.js";
 import { updateAdminUser } from "./commands/UpdateAdminUser.js";
 import { updateUser } from "./commands/UpdateUser.js";
@@ -15,7 +14,6 @@ export const UsuarioRepository = {
         login: loginUserCommand,
         register: registerUser,
         resetPassword,
-        sendPassword,
         resetPasswordByToken,
         updateAdminStatusUser,
         updateAdminUser,

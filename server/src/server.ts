@@ -13,12 +13,13 @@ import { JwtAuthService } from './services/infrastructure/security/auth/JwtAuthS
 import { ManageFileService } from './services/infrastructure/storage/ManageFileService.js'
 import { upload } from './middlewares/multer.middleware.js'
 import usuarioRouter from './routes/usuario.route.js'
+import authRouter from './routes/auth.route.js'
 
 export async function connectDB()
 {
     try {
         await db.authenticate()
-        await db.sync()
+        await db.sync({ force: true })
 
         await seedDatabase()
         console.log(colors.blue('Conexión exitosa a la BD'))
@@ -61,6 +62,7 @@ server.post('/api/test-upload', upload.single('image') ,testController.testUploa
 server.post('/api/test-auth', testController.testAuth)
 server.get('/api/test-pagination', testController.testPagination)
 server.use('/api/usuarios', usuarioRouter)
+server.use('/api/admin', authRouter)
 
 server.use(globalErrorHandler)
 
