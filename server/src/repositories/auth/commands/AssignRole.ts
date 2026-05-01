@@ -1,6 +1,13 @@
-import type Usuario from "../../../models/Usuario.model.js";
+import Usuario from "../../../models/Usuario.model.js"
 
-export const assignRole = async(usuario: Usuario, roleIds: number[]) =>
+export const assignRole = async(usuarioId: string, roleIds: number[]) =>
 {
-    return await usuario.$set('roles', roleIds)
+    const usuarioInstance = await Usuario.findByPk(usuarioId)
+    if(!usuarioInstance)
+        throw new Error('Usuario no encontrado')
+
+    await usuarioInstance.$set('roles', roleIds)
+    await usuarioInstance.reload({ include: ['roles']})
+    return usuarioInstance ? usuarioInstance.get({ plain: true }) : null
+
 }

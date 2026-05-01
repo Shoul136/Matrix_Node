@@ -19,7 +19,7 @@ export async function connectDB()
 {
     try {
         await db.authenticate()
-        await db.sync()
+        await db.sync({ force: true })
 
         await seedDatabase()
         console.log(colors.blue('Conexión exitosa a la BD'))

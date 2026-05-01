@@ -1,4 +1,5 @@
 import type { ServiceResponse } from "../../../interfaces/service.interface.js";
+import { validateAndTransform } from "../../../mapper/generic.js";
 import { UsuarioRepository } from "../../../repositories/usuario/index.js";
 import { UsuarioPaginationResponseSchema, UsuarioResponseSchema, type RegisterUsuarioDTO, type ResetPasswordByTokenDTO, type ResetPasswordDto, type UpdateAdminUsuarioDTO, type UpdateUsuarioDTO, type UsuarioPaginationResponse, type UsuarioResponse } from "../../../schemas/usuario.schema.js";
 import { getPaginationOptions, getPagingData } from "../../../utils/pagination.js";
@@ -14,11 +15,15 @@ export class UserService {
     
     async registerUser(usuario: RegisterUsuarioDTO) : Promise<UsuarioResponse>{
         const registeredUser = await UsuarioRepository.commands.register(usuario);
-        return UsuarioResponseSchema.parse(registeredUser.get({ plain: true}))
+        return validateAndTransform(UsuarioResponseSchema, registeredUser)
     }
 
     async resetPassword(user_id: string, data: ResetPasswordDto) : Promise<ServiceResponse>
     {
+        const user = await UsuarioRepository.queries.getUserById(user_id)
+        if(!user)
+            return { success: false, message: "Usuario no encontrado", code: "USER_NOT_FOUND" };
+
         const validation = await this._authService.verifyHashedPassword(user_id, data.newPassword, data.oldPassword)
 
         if(!validation.success)
@@ -56,7 +61,7 @@ export class UserService {
     }
 
     async sendPassword(email: string) : Promise<boolean>{     
-        const user = await UsuarioRepository.commands.sendPassword(email)
+        const user = await UsuarioRepository.queries.getUserByEmail(email)
         if(!user)
             throw new Error('No se encontro el usuario en la BD')
 
@@ -73,17 +78,17 @@ export class UserService {
 
     async updateAdminStatusUser(user_id: string) : Promise<UsuarioResponse>{
         const data = await UsuarioRepository.commands.updateAdminStatusUser(user_id)
-        return UsuarioResponseSchema.parse(data.get({ plain: true}))
+        return validateAndTransform(UsuarioResponseSchema, data)
     }
 
     async updateAdminUser(id: string, usuarioData: UpdateAdminUsuarioDTO) : Promise<UsuarioResponse>{
         const data = await UsuarioRepository.commands.updateAdminUser(id, usuarioData)
-        return UsuarioResponseSchema.parse(data.get({ plain: true }))
+        return validateAndTransform(UsuarioResponseSchema, data)
     }
 
     async updateUser(user_id: string, usuarioData: UpdateUsuarioDTO) : Promise<UsuarioResponse>{
         const data = await UsuarioRepository.commands.updateUser(user_id, usuarioData)
-        return UsuarioResponseSchema.parse(data.get({ plain: true }));
+        return validateAndTransform(UsuarioResponseSchema, data)
     }
 
     async getUserById(id: string) : Promise<UsuarioResponse>
@@ -92,7 +97,7 @@ export class UserService {
         if(!data)
             throw new Error('No se encontro ningun usuario con este id')
 
-        return UsuarioResponseSchema.parse(data?.get({ plain: true }))
+        return validateAndTransform(UsuarioResponseSchema, data)
     }
 
     async getUserByEmail(email: string) : Promise<UsuarioResponse>
@@ -101,21 +106,16 @@ export class UserService {
         if(!data)
             throw new Error('No se encontro ningun usuario con este correo')
 
-        return UsuarioResponseSchema.parse(data?.get({ plain: true}))
+        return validateAndTransform(UsuarioResponseSchema, data)
     }
 
     async paginationUser(page: number, size: number) : Promise<UsuarioPaginationResponse>
     {
         const { limit, offset } = getPaginationOptions(Number(page), Number(size))     
         
-        const data = await UsuarioRepository.queries.paginationUser(limit, offset);
-        const result = getPagingData(data, Number(page), limit)
+        const rawData = await UsuarioRepository.queries.paginationUser(limit, offset);
+        const result = getPagingData(rawData, Number(page), limit)
         
-        const plainResult = {
-            ...result,
-            data: result.data.map(user => user.get({ plain: true }))
-        };
-
-        return UsuarioPaginationResponseSchema.parse(plainResult)
+        return validateAndTransform(UsuarioPaginationResponseSchema, result)
     }
 }

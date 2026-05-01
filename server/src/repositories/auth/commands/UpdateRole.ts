@@ -7,5 +7,5 @@ export const updateRole = async(id : number, data : any) => {
 
     await role.update(data)
 
-    return await role;
+    return role ? role.get({ plain: true }) : null;
 }

@@ -33,9 +33,9 @@ export class UsuarioController {
 
     resetPassword = async (req: Request, res: Response<ServiceResponse>, next: NextFunction) => {
         try {
-            const user_id = (req as any).user.id;
+            const { id } = req.params;
             const data = req.body as ResetPasswordDto
-            const result = await this._userService.resetPassword(user_id, data)
+            const result = await this._userService.resetPassword(id as string, data)
             if (!result.success)
                 return res.status(400).json({ success: false, message: result.message, ...(result.code && { code: result.code }) })
 

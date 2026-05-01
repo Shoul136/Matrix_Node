@@ -6,5 +6,5 @@ export const createPermission = async(nombre: string, descripcion: string) => {
         descripcion
     })
 
-    return newPermission
+    return newPermission ? newPermission.get({ plain: true }) : null
 }

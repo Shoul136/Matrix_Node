@@ -8,5 +8,7 @@ export const updateUser = async(user_id: string, usuarioData : UpdateUsuarioDTO)
     if(!user)
         throw new Error('Usuario no encontrado')
 
-    return await user.update(updateData)    
+    await user.update(updateData)    
+    await user.reload()
+    return user ? user.get({ plain: true }) : null
 }

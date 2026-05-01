@@ -1,4 +1,3 @@
-import { includes } from "zod"
 import Role from "../../../models/Role.model.js"
 import Usuario from "../../../models/Usuario.model.js"
 import Permiso from "../../../models/Permiso.model.js"
@@ -9,5 +8,5 @@ export const loginUserCommand = async(email: string) => {
         include: [{ model: Role, as: 'roles', include: [Permiso]}]
     })
 
-    return user
+    return user ? user.get({ plain: true }) : null
 }

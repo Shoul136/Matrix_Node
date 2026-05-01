@@ -1,5 +1,11 @@
-import type Role from "../../../models/Role.model.js";
+import Role from "../../../models/Role.model.js";
 
-export const assignPermissions = async(role: Role, permissionIds: number[]) => {
-    return await role.$set('permisos', permissionIds)
+export const assignPermissions = async(roleId: number, permissionIds: number[]) => {
+    const roleInstance = await Role.findByPk(roleId)
+    if(!roleInstance) throw new Error('Role no encontrado')        
+
+    await roleInstance.$set('permisos', permissionIds)
+
+    const updatedRole = await roleInstance.reload({ include: ['permisos']})
+    return updatedRole.get({ plain: true })
 }

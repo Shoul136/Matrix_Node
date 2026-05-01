@@ -6,5 +6,5 @@ export const createRole = async(nombre: any, descripcion: any) => {
        descripcion
     })
 
-    return newRole
+    return newRole ? newRole.get({ plain: true }) : null
 }

@@ -1,9 +1,9 @@
 import Usuario from "../../../models/Usuario.model.js";
 
 export const getUserByEmail = async(email: string) => {
-    const usuario = await Usuario.findOne({ 
+    const user = await Usuario.findOne({ 
         where: { email },
         include: ['roles']
     });
-    return usuario 
+    return user ? user.get({ plain: true }) : null
 }

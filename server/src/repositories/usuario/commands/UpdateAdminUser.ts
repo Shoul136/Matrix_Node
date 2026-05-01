@@ -17,5 +17,6 @@ export const updateAdminUser = async(id: string, usuarioData: UpdateAdminUsuario
         await user.$set('roles', usuarioData.roles)
     }
 
-    return await user.reload({ include: [{ model: Role, through: { attributes: [] }}, { model: Departamento }]})
+    await user.reload({ include: [{ model: Role, through: { attributes: [] }}, { model: Departamento }]})
+    return user ? user.get({ plain: true }) : null
 }
