@@ -1,4 +1,4 @@
-import { AllowNull, AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, Default, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { ProyectoEstatus as ProyectoEnum } from "./enums/index.js";
 
 @Table({
@@ -19,6 +19,7 @@ class Proyecto extends Model{
     @Column({type: DataType.TEXT})
     declare descripcion: string
 
+    @Default(ProyectoEnum.CURSO)
     @AllowNull(false)
     @Column({type: DataType.STRING(20)})
     declare estatus: ProyectoEnum

@@ -37,7 +37,7 @@ class Proveedor extends Model{
 
     @AllowNull(false)
     @Column({type: DataType.STRING(20)})
-    declare estatus:string
+    declare estatus: string
 }
 
 export default Proveedor

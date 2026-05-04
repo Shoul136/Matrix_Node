@@ -31,6 +31,10 @@ export const seedDatabase = async () => {
         if (depto_count === 0) {
             await Departamento.bulkCreate(departamentosData)
             console.log(colors.green('✔ Departamentos creados correctamente'))
+
+             if (db.getDialect() === 'postgres') {
+                    await db.query(`SELECT setval(pg_get_serial_sequence('departamento', 'id'), (SELECT MAX(id) FROM "departamento"))`);
+            }
         }
 
         const rolesCount = await Role.count()
