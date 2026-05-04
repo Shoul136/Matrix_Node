@@ -17,9 +17,10 @@ class Departamento extends Model{
     declare nombre: string
 
     // Foreign Key
+    @AllowNull(true)
     @ForeignKey(() => Usuario)
     @Column({type: DataType.UUID})
-    declare jefe_departamento: string    
+    declare jefe_departamento: string | null
 
     @BelongsTo(() => Usuario, 'jefe_departamento')
     declare jefe: Usuario

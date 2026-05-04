@@ -5,9 +5,9 @@ export enum RequisicionEstatus{
 }
 
 export enum ProyectoEstatus{
-    Curso = "Curso",
-    Finalizado = "Finalizado",
-    Cancelado = "Cancelado"
+    CURSO = "CURSO",
+    FINALIZADO = "FINALIZADO",
+    CANCELADO = "CANCELADO"
 }
 
 export enum OrdenCompraEstatus{
@@ -41,4 +41,12 @@ export enum UsuarioEnum{
     Inactivo = "Inactivo",
     Suspendido = "Suspendido",
     Vacaciones = "Vacaciones"
+}
+
+export enum ProveedorEnum{
+    ACTIVO = "ACTIVO",
+    SUSPENDIDO = "SUSPENDIDO",
+    INACTIVO = "INACTIVO",
+    EN_REVISION = "EN REVISION",
+    BLOQUEADO = "BLOQUEADO"
 }

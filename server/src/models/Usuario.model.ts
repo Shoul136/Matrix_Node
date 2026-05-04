@@ -64,6 +64,17 @@ class Usuario extends Model {
 
     @BelongsToMany(() => Role, () => UsuarioRole, 'usuario_id', 'role_id')
     declare roles: Role[]
+
+    @Column({
+        type: DataType.VIRTUAL,
+        get() {
+            const nombre = this.getDataValue('nombre') || '';
+            const paterno = this.getDataValue('apellido_paterno') || '';
+            const materno = this.getDataValue('apellido_materno') || '';
+            return [nombre, paterno, materno].filter(Boolean).join(' ');
+        }
+    }) 
+    declare nombre_completo: string;
 }
 
 export default Usuario;

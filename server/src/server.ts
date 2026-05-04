@@ -14,6 +14,9 @@ import { ManageFileService } from './services/infrastructure/storage/ManageFileS
 import { upload } from './middlewares/multer.middleware.js'
 import usuarioRouter from './routes/usuario.route.js'
 import authRouter from './routes/auth.route.js'
+import departamentoRouter from './routes/departamento.route.js'
+import proveedorRouter from './routes/proveedor.route.js'
+import proyectoRouter from './routes/proyecto.route.js'
 
 export async function connectDB()
 {
@@ -63,6 +66,9 @@ server.post('/api/test-auth', testController.testAuth)
 server.get('/api/test-pagination', testController.testPagination)
 server.use('/api/usuarios', usuarioRouter)
 server.use('/api/admin', authRouter)
+server.use('/api/departamento', departamentoRouter)
+server.use('/api/proveedor', proveedorRouter)
+server.use('/api/proyecto', proyectoRouter)
 
 server.use(globalErrorHandler)
 

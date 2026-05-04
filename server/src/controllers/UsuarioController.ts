@@ -6,7 +6,7 @@ import type { RegisterUsuarioDTO, ResetPasswordByTokenDTO, ResetPasswordDto } fr
 import type { AuthLoginDTO } from "../schemas/auth.schema.js";
 
 export class UsuarioController {
-    constructor(
+    constructor(    
         private readonly _authService: AuthService,
         private readonly _userService: UserService
     ) { }
